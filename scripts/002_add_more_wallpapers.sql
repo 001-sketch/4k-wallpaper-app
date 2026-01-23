@@ -1,0 +1,304 @@
+-- Add more wallpapers across all categories (using subqueries for UUID category IDs)
+
+INSERT INTO wallpapers (title, slug, category_id, width, height, aspect_ratio, thumbnail_url, preview_url, full_url, tags, downloads, favorites, views, is_featured, artist_name) VALUES
+  -- Nature (6 more)
+  ('Autumn Forest Path', 'autumn-forest-path', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1080&q=80',
+   'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=3840&q=90',
+   ARRAY['autumn', 'forest', 'path', 'fall'], 7832, 1243, 42156, false, 'Johannes Plenio'),
+  
+  ('Tropical Beach', 'tropical-beach', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80',
+   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1080&q=80',
+   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=3840&q=90',
+   ARRAY['beach', 'tropical', 'ocean', 'paradise'], 11234, 1876, 58432, true, 'Sean Oulashin'),
+  
+  ('Waterfall Paradise', 'waterfall-paradise', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=400&q=80',
+   'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1080&q=80',
+   'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=3840&q=90',
+   ARRAY['waterfall', 'nature', 'water', 'green'], 6543, 1032, 35678, false, 'Robert Lukeman'),
+  
+  ('Desert Dunes', 'desert-dunes-2', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400&q=80',
+   'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1080&q=80',
+   'https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=3840&q=90',
+   ARRAY['desert', 'dunes', 'sand', 'golden'], 5432, 876, 28765, false, 'Keith Hardy'),
+  
+  ('Lavender Fields', 'lavender-fields', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=400&q=80',
+   'https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=1080&q=80',
+   'https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=3840&q=90',
+   ARRAY['lavender', 'fields', 'purple', 'flowers'], 8765, 1432, 45678, false, 'Leonard Cotte'),
+  
+  ('Snowy Peaks', 'snowy-peaks', (SELECT id FROM categories WHERE slug = 'nature'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=400&q=80',
+   'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1080&q=80',
+   'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=3840&q=90',
+   ARRAY['snow', 'mountains', 'winter', 'peaks'], 9123, 1543, 48765, true, 'Eberhard Grossgasteiger'),
+
+  -- Abstract (6 more)
+  ('Digital Waves', 'digital-waves', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=400&q=80',
+   'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1080&q=80',
+   'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=3840&q=90',
+   ARRAY['digital', 'waves', 'abstract', 'flow'], 7654, 1234, 38765, false, 'Pawel Czerwinski'),
+  
+  ('Liquid Metal', 'liquid-metal', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&q=80',
+   'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1080&q=80',
+   'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=3840&q=90',
+   ARRAY['liquid', 'metal', 'chrome', 'abstract'], 6543, 1098, 34567, false, 'Michael Dziedzic'),
+  
+  ('Colorful Smoke', 'colorful-smoke', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=400&q=80',
+   'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1080&q=80',
+   'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=3840&q=90',
+   ARRAY['smoke', 'colorful', 'abstract', 'art'], 8765, 1432, 45678, true, 'Pawel Czerwinski'),
+  
+  ('Crystal Formation', 'crystal-formation', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=400&q=80',
+   'https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=1080&q=80',
+   'https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=3840&q=90',
+   ARRAY['crystal', 'abstract', 'pink', 'geometric'], 5432, 876, 28765, false, 'Fakurian Design'),
+  
+  ('3D Spheres', '3d-spheres', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80',
+   'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1080&q=80',
+   'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=3840&q=90',
+   ARRAY['3d', 'spheres', 'abstract', 'render'], 7123, 1198, 39876, false, 'Milad Fakurian'),
+  
+  ('Ink in Water', 'ink-in-water', (SELECT id FROM categories WHERE slug = 'abstract'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1574169208507-84376144ff47?w=400&q=80',
+   'https://images.unsplash.com/photo-1574169208507-84376144ff47?w=1080&q=80',
+   'https://images.unsplash.com/photo-1574169208507-84376144ff47?w=3840&q=90',
+   ARRAY['ink', 'water', 'abstract', 'flow'], 6234, 1032, 33456, false, 'Pawel Czerwinski'),
+
+  -- Minimal (6 more)
+  ('Soft Shadows', 'soft-shadows', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
+   'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1080&q=80',
+   'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=3840&q=90',
+   ARRAY['minimal', 'shadows', 'soft', 'light'], 5432, 876, 28765, false, 'Milad Fakurian'),
+  
+  ('Paper Texture', 'paper-texture', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1558637845-c8b7ead71a3e?w=400&q=80',
+   'https://images.unsplash.com/photo-1558637845-c8b7ead71a3e?w=1080&q=80',
+   'https://images.unsplash.com/photo-1558637845-c8b7ead71a3e?w=3840&q=90',
+   ARRAY['paper', 'texture', 'minimal', 'white'], 4321, 765, 23456, false, 'Scott Webb'),
+  
+  ('Concrete Wall', 'concrete-wall', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=400&q=80',
+   'https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=1080&q=80',
+   'https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=3840&q=90',
+   ARRAY['concrete', 'wall', 'minimal', 'gray'], 3456, 654, 19876, false, 'Samuel Zeller'),
+  
+  ('Single Leaf', 'single-leaf', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=400&q=80',
+   'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1080&q=80',
+   'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=3840&q=90',
+   ARRAY['leaf', 'minimal', 'nature', 'green'], 6543, 1098, 34567, false, 'Sarah Dorweiler'),
+  
+  ('Geometric Architecture', 'geometric-architecture', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1509537257950-20f875b03669?w=400&q=80',
+   'https://images.unsplash.com/photo-1509537257950-20f875b03669?w=1080&q=80',
+   'https://images.unsplash.com/photo-1509537257950-20f875b03669?w=3840&q=90',
+   ARRAY['geometric', 'lines', 'minimal', 'architecture'], 7654, 1234, 38765, true, 'Ricardo Gomez Angel'),
+  
+  ('Zen Garden', 'zen-garden', (SELECT id FROM categories WHERE slug = 'minimal'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&q=80',
+   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1080&q=80',
+   'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=3840&q=90',
+   ARRAY['zen', 'garden', 'minimal', 'peaceful'], 5678, 987, 31234, false, 'Jared Rice'),
+
+  -- Space (6 more)
+  ('Mars Surface', 'mars-surface', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=400&q=80',
+   'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=1080&q=80',
+   'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=3840&q=90',
+   ARRAY['mars', 'planet', 'red', 'space'], 8765, 1432, 45678, false, 'NASA'),
+  
+  ('Andromeda Galaxy', 'andromeda-galaxy', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=400&q=80',
+   'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=1080&q=80',
+   'https://images.unsplash.com/photo-1543722530-d2c3201371e7?w=3840&q=90',
+   ARRAY['andromeda', 'galaxy', 'stars', 'space'], 10234, 1654, 52341, true, 'NASA'),
+  
+  ('Solar Eclipse', 'solar-eclipse', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?w=400&q=80',
+   'https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?w=1080&q=80',
+   'https://images.unsplash.com/photo-1503751071777-d2918b21bbd9?w=3840&q=90',
+   ARRAY['eclipse', 'solar', 'sun', 'moon'], 9123, 1543, 48765, false, 'Mathew Schwartz'),
+  
+  ('Astronaut Float', 'astronaut-float', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&q=80',
+   'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1080&q=80',
+   'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=3840&q=90',
+   ARRAY['astronaut', 'space', 'earth', 'float'], 7654, 1234, 38765, false, 'NASA'),
+  
+  ('Saturn Rings', 'saturn-rings', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=400&q=80',
+   'https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=1080&q=80',
+   'https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=3840&q=90',
+   ARRAY['saturn', 'rings', 'planet', 'space'], 6543, 1098, 34567, false, 'NASA'),
+  
+  ('Cosmic Dust Cloud', 'cosmic-dust-cloud', (SELECT id FROM categories WHERE slug = 'space'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&q=80',
+   'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=1080&q=80',
+   'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=3840&q=90',
+   ARRAY['cosmic', 'dust', 'nebula', 'purple'], 8234, 1321, 43567, false, 'Aldebaran S'),
+
+  -- Architecture (6 more)
+  ('Modern Museum', 'modern-museum', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&q=80',
+   'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1080&q=80',
+   'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=3840&q=90',
+   ARRAY['museum', 'modern', 'architecture', 'white'], 6543, 1098, 34567, false, 'Lance Anderson'),
+  
+  ('NYC Streets', 'nyc-streets', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&q=80',
+   'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1080&q=80',
+   'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=3840&q=90',
+   ARRAY['nyc', 'streets', 'city', 'urban'], 9876, 1567, 51234, true, 'Colton Duke'),
+  
+  ('Glass Building', 'glass-building', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&q=80',
+   'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=1080&q=80',
+   'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=3840&q=90',
+   ARRAY['glass', 'building', 'modern', 'blue'], 7654, 1234, 38765, false, 'Joel Filipe'),
+  
+  ('Paris Eiffel', 'paris-eiffel', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1511739001486-6bfe10ce65f4?w=400&q=80',
+   'https://images.unsplash.com/photo-1511739001486-6bfe10ce65f4?w=1080&q=80',
+   'https://images.unsplash.com/photo-1511739001486-6bfe10ce65f4?w=3840&q=90',
+   ARRAY['paris', 'eiffel', 'tower', 'france'], 11234, 1876, 58432, true, 'Chris Karidis'),
+  
+  ('Singapore Marina', 'singapore-marina', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=400&q=80',
+   'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1080&q=80',
+   'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=3840&q=90',
+   ARRAY['singapore', 'marina', 'bay', 'night'], 8765, 1432, 45678, false, 'Mike Enerio'),
+  
+  ('Spiral Staircase', 'spiral-staircase', (SELECT id FROM categories WHERE slug = 'architecture'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1553696801-16f70e5b0e05?w=400&q=80',
+   'https://images.unsplash.com/photo-1553696801-16f70e5b0e05?w=1080&q=80',
+   'https://images.unsplash.com/photo-1553696801-16f70e5b0e05?w=3840&q=90',
+   ARRAY['spiral', 'staircase', 'architecture', 'interior'], 5432, 876, 28765, false, 'Tine Ivanic'),
+
+  -- Anime (6 more)
+  ('Anime City Night', 'anime-city-night', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1560972550-aba3456b5564?w=400&q=80',
+   'https://images.unsplash.com/photo-1560972550-aba3456b5564?w=1080&q=80',
+   'https://images.unsplash.com/photo-1560972550-aba3456b5564?w=3840&q=90',
+   ARRAY['anime', 'city', 'night', 'neon'], 8765, 1432, 45678, true, 'Jezael Melgoza'),
+  
+  ('Japanese Garden', 'japanese-garden', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=80',
+   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1080&q=80',
+   'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=3840&q=90',
+   ARRAY['japanese', 'garden', 'temple', 'zen'], 7654, 1234, 38765, false, 'Su San Lee'),
+  
+  ('Torii Gate', 'torii-gate', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=400&q=80',
+   'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=1080&q=80',
+   'https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=3840&q=90',
+   ARRAY['torii', 'gate', 'japan', 'shrine'], 6543, 1098, 34567, false, 'Lin Mei'),
+  
+  ('Neon Alley', 'neon-alley', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&q=80',
+   'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1080&q=80',
+   'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=3840&q=90',
+   ARRAY['neon', 'alley', 'japan', 'cyberpunk'], 9876, 1567, 51234, true, 'Jezael Melgoza'),
+  
+  ('Mt Fuji Sunset', 'mt-fuji-sunset', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=80',
+   'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1080&q=80',
+   'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=3840&q=90',
+   ARRAY['fuji', 'mountain', 'sunset', 'japan'], 10234, 1654, 52341, false, 'David Edelstein'),
+  
+  ('Shibuya Crossing', 'shibuya-crossing', (SELECT id FROM categories WHERE slug = 'anime'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=400&q=80',
+   'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=1080&q=80',
+   'https://images.unsplash.com/photo-1532236204992-f5e85c024202?w=3840&q=90',
+   ARRAY['shibuya', 'crossing', 'tokyo', 'crowds'], 7234, 1198, 39876, false, 'Jezael Melgoza'),
+
+  -- Dark (6 more)
+  ('Dark Ocean', 'dark-ocean', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&q=80',
+   'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1080&q=80',
+   'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=3840&q=90',
+   ARRAY['dark', 'ocean', 'waves', 'moody'], 6543, 1098, 34567, false, 'Matt Hardy'),
+  
+  ('Foggy Road', 'foggy-road', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=400&q=80',
+   'https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=1080&q=80',
+   'https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=3840&q=90',
+   ARRAY['fog', 'road', 'dark', 'misty'], 5432, 876, 28765, false, 'Patrick Tomasso'),
+  
+  ('Stormy Sky', 'stormy-sky', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=400&q=80',
+   'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=1080&q=80',
+   'https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=3840&q=90',
+   ARRAY['storm', 'sky', 'clouds', 'dramatic'], 7654, 1234, 38765, true, 'Josep Castells'),
+  
+  ('Black Mountains', 'black-mountains', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1500534623283-a37a91ded007?w=400&q=80',
+   'https://images.unsplash.com/photo-1500534623283-a37a91ded007?w=1080&q=80',
+   'https://images.unsplash.com/photo-1500534623283-a37a91ded007?w=3840&q=90',
+   ARRAY['mountains', 'black', 'silhouette', 'dark'], 8765, 1432, 45678, false, 'Dino Reichmuth'),
+  
+  ('Rainy Window', 'rainy-window', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?w=400&q=80',
+   'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?w=1080&q=80',
+   'https://images.unsplash.com/photo-1501999635878-71cb5379c2d8?w=3840&q=90',
+   ARRAY['rain', 'window', 'drops', 'moody'], 6234, 1032, 33456, false, 'Valentin Mueller'),
+  
+  ('Dark Tunnel', 'dark-tunnel', (SELECT id FROM categories WHERE slug = 'dark'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&q=80',
+   'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1080&q=80',
+   'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=3840&q=90',
+   ARRAY['tunnel', 'dark', 'light', 'perspective'], 5678, 987, 31234, false, 'Warren Wong'),
+
+  -- Gradient (6 more)
+  ('Blue Pink Gradient', 'blue-pink-gradient', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&q=80',
+   'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=3840&q=90',
+   ARRAY['gradient', 'blue', 'pink', 'smooth'], 8765, 1432, 45678, true, 'Gradienta'),
+  
+  ('Orange Yellow', 'orange-yellow-gradient', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557683311-eac922347aa1?w=400&q=80',
+   'https://images.unsplash.com/photo-1557683311-eac922347aa1?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557683311-eac922347aa1?w=3840&q=90',
+   ARRAY['gradient', 'orange', 'yellow', 'warm'], 6543, 1098, 34567, false, 'Gradienta'),
+  
+  ('Cyan Gradient', 'cyan-gradient', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=400&q=80',
+   'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=3840&q=90',
+   ARRAY['gradient', 'cyan', 'teal', 'cool'], 7654, 1234, 38765, false, 'Gradienta'),
+  
+  ('Rainbow Mesh', 'rainbow-mesh', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557683316-973673bdar25?w=400&q=80',
+   'https://images.unsplash.com/photo-1557683316-973673bdar25?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557683316-973673bdar25?w=3840&q=90',
+   ARRAY['gradient', 'rainbow', 'mesh', 'colorful'], 9123, 1543, 48765, true, 'Gradienta'),
+  
+  ('Deep Purple', 'deep-purple-gradient', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557682260-96773eb01377?w=400&q=80',
+   'https://images.unsplash.com/photo-1557682260-96773eb01377?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557682260-96773eb01377?w=3840&q=90',
+   ARRAY['gradient', 'purple', 'deep', 'dark'], 5432, 876, 28765, false, 'Gradienta'),
+  
+  ('Pastel Dream', 'pastel-dream', (SELECT id FROM categories WHERE slug = 'gradient'), 3840, 2160, '16:9',
+   'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?w=400&q=80',
+   'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?w=1080&q=80',
+   'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?w=3840&q=90',
+   ARRAY['gradient', 'pastel', 'soft', 'dream'], 6789, 1123, 36543, false, 'Gradienta')
+ON CONFLICT (slug) DO NOTHING;
+
+-- Update category wallpaper counts
+UPDATE categories SET wallpaper_count = (
+  SELECT COUNT(*) FROM wallpapers WHERE wallpapers.category_id = categories.id
+);
