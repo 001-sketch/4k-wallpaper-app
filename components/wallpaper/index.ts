@@ -1,4 +1,6 @@
 export { BottomNav } from "./bottom-nav";
+export { HeaderNav } from "./header-nav";
+export { Footer } from "./footer";
 export { HomeFeed } from "./home-feed";
 export { ExplorePage } from "./explore-page";
 export { SearchPage } from "./search-page";

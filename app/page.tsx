@@ -3,7 +3,8 @@
 import { useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Wallpaper } from "@/lib/db";
-import { BottomNav } from "@/components/wallpaper/bottom-nav";
+import { HeaderNav } from "@/components/wallpaper/header-nav";
+import { Footer } from "@/components/wallpaper/footer";
 import { HomeFeed } from "@/components/wallpaper/home-feed";
 import { ExplorePage } from "@/components/wallpaper/explore-page";
 import { SearchPage } from "@/components/wallpaper/search-page";
@@ -52,8 +53,11 @@ export default function WallpaperApp() {
 
   return (
     <main className="min-h-screen bg-background">
+      {/* Header navigation */}
+      <HeaderNav activeTab={activeTab} onTabChange={handleTabChange} />
+      
       {/* Page content */}
-      <div className="relative">
+      <div className="relative pt-16">
         {activeTab === "home" && (
           <HomeFeed
             onWallpaperClick={handleWallpaperClick}
@@ -79,15 +83,15 @@ export default function WallpaperApp() {
         {activeTab === "settings" && <SettingsPage />}
       </div>
 
-      {/* Bottom navigation */}
-      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} />
-
       {/* Wallpaper preview modal */}
       <WallpaperPreview
         wallpaper={selectedWallpaper}
         isOpen={isPreviewOpen}
         onClose={handleClosePreview}
       />
+
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }

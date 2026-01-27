@@ -4,13 +4,38 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({ 
+  subsets: ["latin"], 
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+});
 
 export const metadata: Metadata = {
-  title: "Wallscape - Premium 4K Wallpapers",
+  title: {
+    default: "Wallscape - Premium 4K Wallpapers",
+    template: "%s | Wallscape"
+  },
   description:
     "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
-  generator: "v0.app",
+  keywords: ["wallpapers", "4K", "5K", "8K", "HD", "backgrounds", "desktop", "mobile"],
+  authors: [{ name: "Wallscape" }],
+  creator: "Wallscape",
+  publisher: "Wallscape",
+  generator: "Next.js",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  openGraph: {
+    title: "Wallscape - Premium 4K Wallpapers",
+    description: "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Wallscape",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wallscape - Premium 4K Wallpapers",
+    description: "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
+  },
   icons: {
     icon: [
       {
@@ -28,14 +53,28 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "photography",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0d14",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#0d0d14" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d0d14" }
+  ],
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
   viewportFit: "cover",
 };
 
@@ -45,11 +84,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${inter.variable} font-sans antialiased overflow-x-hidden`}
+        className={`${inter.variable} font-sans antialiased overflow-x-hidden bg-background text-foreground min-h-screen`}
       >
-        {children}
+        <div className="relative flex min-h-screen flex-col">
+          <main className="flex-1">
+            {children}
+          </main>
+        </div>
         <Analytics />
       </body>
     </html>

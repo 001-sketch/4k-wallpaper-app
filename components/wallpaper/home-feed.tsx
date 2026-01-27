@@ -42,20 +42,7 @@ export function HomeFeed({ onWallpaperClick, onCategoryClick }: HomeFeedProps) {
   return (
     <div className="pb-24">
       {/* Header */}
-      <header className="px-4 pt-4 pb-6 safe-top">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-foreground">Wallscape</h1>
-            <p className="text-sm text-muted-foreground">
-              Discover stunning wallpapers
-            </p>
-          </div>
-          <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
-            <Sparkles className="w-5 h-5 text-foreground" />
-          </div>
-        </div>
-      </header>
-
+     
       {/* Featured wallpaper */}
       {featuredWallpaper && (
         <section className="px-4 mb-6">
