@@ -63,17 +63,30 @@ export function WallpaperPreview({
   const handleDownload = async () => {
     setIsDownloading(true);
 
-    // Simulate download
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Fetch the image
+      const response = await fetch(wallpaper.full_url);
+      const blob = await response.blob();
+      
+      // Create a download link
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${wallpaper.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
 
-    addDownload(wallpaper.id);
-    setIsDownloading(false);
-    setDownloadComplete(true);
+      addDownload(wallpaper.id);
+      setIsDownloading(false);
+      setDownloadComplete(true);
 
-    // Open image in new tab as "download"
-    window.open(wallpaper.full_url, "_blank");
-
-    setTimeout(() => setDownloadComplete(false), 2000);
+      setTimeout(() => setDownloadComplete(false), 2000);
+    } catch (error) {
+      console.error('Download failed:', error);
+      setIsDownloading(false);
+    }
   };
 
   const handleShare = async () => {
