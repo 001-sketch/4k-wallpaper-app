@@ -11,6 +11,13 @@ export function getAuth() {
   const secret = process.env.NEON_AUTH_COOKIE_SECRET;
 
   if (!baseUrl || !secret) {
+    console.error(
+      "Neon Auth env missing:",
+      JSON.stringify({
+        NEON_AUTH_BASE_URL: !!baseUrl,
+        NEON_AUTH_COOKIE_SECRET: !!secret,
+      })
+    );
     throw new Error(
       "Missing NEON_AUTH_BASE_URL or NEON_AUTH_COOKIE_SECRET environment variables."
     );
