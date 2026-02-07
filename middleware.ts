@@ -1,8 +1,10 @@
-import { auth } from "@/lib/auth/server";
+import { getAuth } from "@/lib/auth/server";
 
-export default auth.middleware({
-  loginUrl: "/auth/sign-in",
-});
+export default function middleware(request: Request) {
+  return getAuth().middleware({
+    loginUrl: "/auth/sign-in",
+  })(request);
+}
 
 export const config = {
   matcher: ["/account/:path*"],
