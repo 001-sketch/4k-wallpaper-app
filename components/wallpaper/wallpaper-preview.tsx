@@ -23,6 +23,12 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 interface WallpaperPreviewProps {
   wallpaper: Wallpaper | null;
@@ -38,6 +44,7 @@ export function WallpaperPreview({
   const [showInfo, setShowInfo] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadComplete, setDownloadComplete] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const { isFavorite, addFavorite, removeFavorite, addDownload } =
     useFavoritesStore();
 
@@ -79,6 +86,7 @@ export function WallpaperPreview({
       window.URL.revokeObjectURL(url);
 
       addDownload(wallpaper.id);
+
       setIsDownloading(false);
       setDownloadComplete(true);
 
@@ -90,21 +98,14 @@ export function WallpaperPreview({
   };
 
   const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: wallpaper.title,
-          text: `Check out this amazing wallpaper: ${wallpaper.title}`,
-          url: wallpaper.full_url,
-        });
-      } catch {
-        // User cancelled share
-      }
-    } else {
-      // Fallback - copy to clipboard
-      navigator.clipboard.writeText(wallpaper.full_url);
-    }
+    setIsShareOpen(true);
   };
+
+  const shareUrl = wallpaper.full_url || "";
+  const shareTitle = wallpaper.title || "Wallpaper";
+  const shareText = `Check out this wallpaper: ${shareTitle}`;
+  const encodedUrl = encodeURIComponent(shareUrl);
+  const encodedText = encodeURIComponent(shareText);
 
   const formatFileSize = (bytes: number) => {
     return (bytes / 1024 / 1024).toFixed(1) + " MB";
@@ -146,13 +147,6 @@ export function WallpaperPreview({
                     </span>
                   </div>
                 )}
-                <button
-                  onClick={handleShare}
-                  className="p-2 rounded-full glass"
-                  aria-label="Share wallpaper"
-                >
-                  <Share2 className="w-5 h-5 text-foreground" />
-                </button>
               </div>
             </div>
 
@@ -276,6 +270,16 @@ export function WallpaperPreview({
             <Button
               variant="outline"
               size="icon"
+              className="rounded-full h-12 w-12 border-border bg-secondary"
+              onClick={handleShare}
+              aria-label="Share wallpaper"
+            >
+              <Share2 className="w-5 h-5 text-foreground" />
+            </Button>
+
+            <Button
+              variant="outline"
+              size="icon"
               className={cn(
                 "rounded-full h-12 w-12 border-border bg-secondary",
                 favorite && "bg-accent/20 border-accent"
@@ -330,6 +334,73 @@ export function WallpaperPreview({
           </div>
         </div>
       </SheetContent>
+
+      <Dialog open={isShareOpen} onOpenChange={setIsShareOpen}>
+        <DialogContent className="max-w-[90%] rounded-2xl">
+          <DialogHeader>
+            <DialogTitle>Share wallpaper</DialogTitle>
+          </DialogHeader>
+          <div className="grid grid-cols-2 gap-3">
+            <a
+              href={`https://wa.me/?text=${encodedText}%20${encodedUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full" variant="secondary">
+                WhatsApp
+              </Button>
+            </a>
+            <a
+              href={`https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full" variant="secondary">
+                Telegram
+              </Button>
+            </a>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full" variant="secondary">
+                Facebook
+              </Button>
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full"
+            >
+              <Button className="w-full" variant="secondary">
+                X / Twitter
+              </Button>
+            </a>
+            <a
+              href={`mailto:?subject=${encodeURIComponent(shareTitle)}&body=${encodedText}%20${encodedUrl}`}
+              className="w-full"
+            >
+              <Button className="w-full" variant="secondary">
+                Email
+              </Button>
+            </a>
+            <Button
+              className="w-full"
+              onClick={async () => {
+                await navigator.clipboard.writeText(shareUrl);
+                setIsShareOpen(false);
+              }}
+            >
+              Copy link
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Sheet>
   );
 }

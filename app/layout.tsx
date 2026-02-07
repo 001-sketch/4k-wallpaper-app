@@ -2,6 +2,8 @@ import React from "react"
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { NeonAuthUIProvider } from "@neondatabase/auth/react";
+import { authClient } from "@/lib/auth/client";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -92,11 +94,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased overflow-x-hidden bg-background text-foreground min-h-screen`}
       >
-        <div className="relative flex min-h-screen flex-col">
-          <main className="flex-1">
-            {children}
-          </main>
-        </div>
+        <NeonAuthUIProvider authClient={authClient} redirectTo="/">
+          <div className="relative flex min-h-screen flex-col">
+            <main className="flex-1">
+              {children}
+            </main>
+          </div>
+        </NeonAuthUIProvider>
         <Analytics />
       </body>
     </html>

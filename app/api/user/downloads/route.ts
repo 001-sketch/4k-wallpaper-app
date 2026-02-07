@@ -40,7 +40,7 @@ export async function GET() {
     `;
 
     const response = NextResponse.json({ downloads, userId });
-
+    
     const cookieStore = await cookies();
     if (!cookieStore.get("wallscape_user_id")) {
       response.cookies.set("wallscape_user_id", userId, {

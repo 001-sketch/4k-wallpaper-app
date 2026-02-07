@@ -76,7 +76,20 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://x.com/MikeMchege"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                aria-label="X (Twitter)"
+              >
+                <svg
+                  viewBox="0 0 1200 1227"
+                  aria-hidden="true"
+                  className="w-5 h-5 fill-current"
+                >
+                  <path d="M714.163 519.284L1160.89 0H1057.7L667.137 450.887L351.099 0H0L468.492 681.821L0 1226.37H103.19L515.387 749.895L849.245 1226.37H1200L714.137 519.284H714.163ZM567.147 689.27L521.68 624.475L144.01 79.694H303.1L607.412 513.895L652.878 578.69L1057.75 1154.67H898.66L567.147 689.296V689.27Z" />
+                </svg>
+              </a>
+              <a
+                href="mailto:mailstck@proton.me"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 aria-label="Email"
               >

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useCallback, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Toaster, toast } from "sonner";
 import type { Wallpaper } from "@/lib/db";
 import { HeaderNav } from "@/components/wallpaper/header-nav";
 import { Footer } from "@/components/wallpaper/footer";
@@ -15,6 +16,7 @@ import Loading from "./loading";
 
 export default function WallpaperApp() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState("home");
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(
     null
@@ -23,6 +25,17 @@ export default function WallpaperApp() {
   const [exploreCategory, setExploreCategory] = useState<string | undefined>(
     undefined
   );
+
+  useEffect(() => {
+    if (searchParams.get("auth") === "signup") {
+      toast.success("Account created successfully. You're now signed in.");
+
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("auth");
+      const next = params.toString();
+      router.replace(next ? `/?${next}` : "/");
+    }
+  }, [searchParams, router]);
 
   const handleWallpaperClick = useCallback((wallpaper: Wallpaper) => {
     setSelectedWallpaper(wallpaper);
@@ -53,6 +66,7 @@ export default function WallpaperApp() {
 
   return (
     <main className="min-h-screen bg-background">
+      <Toaster position="top-right" />
       {/* Header navigation */}
       <HeaderNav activeTab={activeTab} onTabChange={handleTabChange} />
       

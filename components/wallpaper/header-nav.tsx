@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { Home, Search, Compass, Heart, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { SignedIn, SignedOut, UserButton } from "@neondatabase/auth/react";
 
 interface HeaderNavProps {
   activeTab: string;
@@ -56,6 +58,22 @@ export function HeaderNav({ activeTab, onTabChange }: HeaderNavProps) {
               );
             })}
           </nav>
+
+          <div className="flex items-center gap-2">
+            <SignedIn>
+              <UserButton size="icon" />
+            </SignedIn>
+            <SignedOut>
+                <Link href="/auth/sign-in">
+                  <Button
+                    size="sm"
+                    className="rounded-full gradient-bg hover:opacity-90"
+                  >
+                    Sign in
+                  </Button>
+                </Link>
+            </SignedOut>
+          </div>
         </div>
       </div>
     </header>

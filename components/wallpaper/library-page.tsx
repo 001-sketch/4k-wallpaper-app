@@ -24,7 +24,7 @@ interface LibraryPageProps {
 
 type LibraryTab = "favorites" | "downloads" | "collections";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url, { credentials: 'include' }).then((r) => r.json());
 
 export function LibraryPage({ onWallpaperClick }: LibraryPageProps) {
   const [activeTab, setActiveTab] = useState<LibraryTab>("favorites");
@@ -82,6 +82,7 @@ export function LibraryPage({ onWallpaperClick }: LibraryPageProps) {
         await fetch('/api/user/collections', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
           body: JSON.stringify({ name: newCollectionName.trim() }),
         });
         mutateCollections();
@@ -98,6 +99,7 @@ export function LibraryPage({ onWallpaperClick }: LibraryPageProps) {
       await fetch('/api/user/collections', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ collectionId: id }),
       });
       mutateCollections();

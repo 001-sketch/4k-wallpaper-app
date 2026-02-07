@@ -129,15 +129,17 @@ export const useFavoritesStore = create<FavoritesState>()(
       syncFavorite: async (id: string, action: 'add' | 'remove') => {
         try {
           if (action === 'add') {
-            await fetch('/api/user/favorites', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ wallpaperId: id }),
-            });
+              await fetch('/api/user/favorites', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ wallpaperId: id }),
+              });
           } else {
             await fetch('/api/user/favorites', {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
+              credentials: 'include',
               body: JSON.stringify({ wallpaperId: id }),
             });
           }
@@ -151,6 +153,7 @@ export const useFavoritesStore = create<FavoritesState>()(
           await fetch('/api/user/downloads', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({ wallpaperId: id, resolution: resolution || '4k' }),
           });
         } catch (error) {
@@ -164,12 +167,14 @@ export const useFavoritesStore = create<FavoritesState>()(
             await fetch('/api/user/collections', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
+              credentials: 'include',
               body: JSON.stringify({ name: data.name }),
             });
           } else if (data.id) {
             await fetch('/api/user/collections', {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' },
+              credentials: 'include',
               body: JSON.stringify({ collectionId: data.id }),
             });
           }
@@ -182,9 +187,9 @@ export const useFavoritesStore = create<FavoritesState>()(
         set({ isLoading: true });
         try {
           const [favRes, dlRes, colRes] = await Promise.all([
-            fetch('/api/user/favorites'),
-            fetch('/api/user/downloads'),
-            fetch('/api/user/collections'),
+            fetch('/api/user/favorites', { credentials: 'include' }),
+            fetch('/api/user/downloads', { credentials: 'include' }),
+            fetch('/api/user/collections', { credentials: 'include' }),
           ]);
 
           if (favRes.ok) {
