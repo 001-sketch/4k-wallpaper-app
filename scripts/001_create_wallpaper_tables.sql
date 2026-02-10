@@ -104,7 +104,8 @@ INSERT INTO categories (name, slug, description, icon) VALUES
   ('Architecture', 'architecture', 'Buildings, cityscapes, and urban photography', 'building'),
   ('Anime', 'anime', 'Japanese animation and manga-inspired art', 'palette'),
   ('Dark', 'dark', 'Dark and moody aesthetics', 'moon'),
-  ('Gradient', 'gradient', 'Beautiful color gradients and transitions', 'blend')
+  ('Gradient', 'gradient', 'Beautiful color gradients and transitions', 'blend'),
+  ('Sports Cars', 'sports-cars', 'Supercars, speed, and performance vehicles', 'car')
 ON CONFLICT (slug) DO NOTHING;
 
 -- Insert sample wallpapers

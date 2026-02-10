@@ -38,6 +38,14 @@ export function HomeFeed({ onWallpaperClick, onCategoryClick }: HomeFeedProps) {
   const wallpapers: Wallpaper[] = wallpapersData?.wallpapers || [];
   const featuredWallpaper: Wallpaper | null = featuredData?.wallpapers?.[0] || null;
   const categories: Category[] = categoriesData?.categories || [];
+  const sportsCars = categories.find((category) => category.slug === "sports-cars");
+  const quickCategories = (() => {
+    const base = categories.slice(0, 6);
+    if (!sportsCars || base.some((category) => category.slug === "sports-cars")) {
+      return base;
+    }
+    return [...base.slice(0, 5), sportsCars];
+  })();
 
   return (
     <div className="pb-24">
@@ -90,7 +98,7 @@ export function HomeFeed({ onWallpaperClick, onCategoryClick }: HomeFeedProps) {
           </button>
         </div>
         <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar pb-2">
-          {categories.slice(0, 6).map((category) => (
+          {quickCategories.map((category) => (
             <button
               key={category.id}
               onClick={() => onCategoryClick(category.slug)}

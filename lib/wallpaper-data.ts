@@ -110,6 +110,14 @@ export const categories: Category[] = [
     wallpaperCount: 890,
     color: "#06b6d4",
   },
+  {
+    id: "9",
+    name: "Sports Cars",
+    slug: "sports-cars",
+    icon: "Car",
+    wallpaperCount: 640,
+    color: "#ef4444",
+  },
 ];
 
 // High-quality wallpaper images from Unsplash
