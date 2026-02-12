@@ -20,23 +20,42 @@ export const metadata: Metadata = {
   },
   description:
     "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
+  applicationName: "Wallscape",
   keywords: ["wallpapers", "4K", "5K", "8K", "HD", "backgrounds", "desktop", "mobile"],
   authors: [{ name: "Wallscape" }],
   creator: "Wallscape",
   publisher: "Wallscape",
   generator: "Next.js",
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
+  alternates: {
+    canonical: "/",
+  },
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     title: "Wallscape - Premium 4K Wallpapers",
     description: "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
     type: "website",
     locale: "en_US",
     siteName: "Wallscape",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1579508542697-bb18e7d9aeaa?w=1200&q=80",
+        width: 1200,
+        height: 630,
+        alt: "Featured sports car wallpaper",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Wallscape - Premium 4K Wallpapers",
     description: "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
+    images: ["https://images.unsplash.com/photo-1579508542697-bb18e7d9aeaa?w=1200&q=80"],
   },
   icons: {
     icon: [

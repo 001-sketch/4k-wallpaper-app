@@ -1,8 +1,26 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AuthView } from "@neondatabase/auth/react";
+import type { Metadata } from "next";
 
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ path: string }>;
+}): Promise<Metadata> {
+  const { path } = await params;
+  const title = path === "sign-up" ? "Create account" : "Sign in";
+
+  return {
+    title,
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
 
 export default async function AuthPage({
   params,
