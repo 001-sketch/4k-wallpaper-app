@@ -220,7 +220,7 @@ MIT License - See LICENSE file for details
 
 ## 👤 Author
 
-Created with ❤️ by [Your Name]
+Created with ❤️ by Mike C
 
 ## 🤝 Contributing
 
