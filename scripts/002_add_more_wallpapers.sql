@@ -364,3 +364,7 @@ ON CONFLICT (slug) DO NOTHING;
 UPDATE categories SET wallpaper_count = (
   SELECT COUNT(*) FROM wallpapers WHERE wallpapers.category_id = categories.id
 );
+
+-- Ensure homepage featured wallpaper is a sports car
+UPDATE wallpapers SET is_featured = false;
+UPDATE wallpapers SET is_featured = true WHERE slug = 'sports-car-04';

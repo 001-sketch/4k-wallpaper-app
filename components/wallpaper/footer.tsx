@@ -76,7 +76,7 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://x.com/MikeMchege"
+                href="https://x.com/WallScapeApp"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 aria-label="X (Twitter)"
               >
