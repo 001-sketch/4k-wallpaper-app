@@ -2,3 +2,9 @@
 *.tsbuildinfo
 next-env.d.ts
 package-lock.json
+
+# dependencies
+node_modules/
+
+# next.js build output
+.next/
