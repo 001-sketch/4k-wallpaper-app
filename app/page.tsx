@@ -11,7 +11,7 @@ import { HomeFeed } from "@/components/wallpaper/home-feed";
 import { ExplorePage } from "@/components/wallpaper/explore-page";
 import { SearchPage } from "@/components/wallpaper/search-page";
 import { LibraryPage } from "@/components/wallpaper/library-page";
-import { SettingsPage } from "@/components/wallpaper/settings-page";
+import SettingsPage from "@/components/wallpaper/settings-page";
 import { WallpaperPreview } from "@/components/wallpaper/wallpaper-preview";
 import Loading from "./loading";
 
