@@ -4,22 +4,15 @@ import React from "react"
 
 import { useState } from "react";
 import {
-  Moon,
-  Sun,
-  Monitor,
   Trash2,
   Bell,
   Shield,
   HelpCircle,
   ChevronRight,
-  Crown,
-  Sparkles,
-  Zap,
   Download,
   Heart,
   FolderPlus,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useFavoritesStore } from "@/lib/favorites-store";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -32,21 +25,12 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
-type Theme = "light" | "dark" | "system";
-
 export function SettingsPage() {
-  const [theme, setTheme] = useState<Theme>("dark");
   const [notifications, setNotifications] = useState(true);
   const [autoDownload, setAutoDownload] = useState(false);
   const [isClearCacheOpen, setIsClearCacheOpen] = useState(false);
 
   const { favorites, downloads, collections } = useFavoritesStore();
-
-  const themeOptions = [
-    { id: "light" as Theme, icon: Sun, label: "Light" },
-    { id: "dark" as Theme, icon: Moon, label: "Dark" },
-    { id: "system" as Theme, icon: Monitor, label: "System" },
-  ];
 
   const stats = [
     { icon: Heart, label: "Favorites", value: favorites.length },
@@ -69,45 +53,6 @@ export function SettingsPage() {
         </p>
       </header>
 
-      {/* Premium banner */}
-      <section className="px-4 mb-6">
-        <div className="relative overflow-hidden rounded-2xl gradient-bg p-5">
-          <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-            <Crown className="w-full h-full" />
-          </div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-2 mb-2">
-              <Crown className="w-5 h-5 text-amber-300" />
-              <span className="text-sm font-bold text-foreground">
-                Upgrade to Premium
-              </span>
-            </div>
-            <p className="text-xs text-foreground/80 mb-4 max-w-[200px]">
-              Unlock 4K+ wallpapers, unlimited downloads, and exclusive
-              collections
-            </p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {[
-                { icon: Sparkles, label: "4K+ Quality" },
-                { icon: Zap, label: "No Ads" },
-                { icon: Download, label: "Unlimited" },
-              ].map((feature) => (
-                <div
-                  key={feature.label}
-                  className="flex items-center gap-1 px-2 py-1 rounded-full bg-foreground/10 text-[10px] text-foreground"
-                >
-                  <feature.icon className="w-3 h-3" />
-                  {feature.label}
-                </div>
-              ))}
-            </div>
-            <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 h-9 text-sm font-semibold">
-              $3.99/month
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Stats */}
       <section className="px-4 mb-6">
         <div className="grid grid-cols-3 gap-3">
@@ -124,31 +69,6 @@ export function SettingsPage() {
                 {stat.label}
               </span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Theme */}
-      <section className="px-4 mb-6">
-        <h2 className="text-sm font-semibold text-foreground mb-3">
-          Appearance
-        </h2>
-        <div className="flex gap-2 p-1 bg-secondary rounded-xl">
-          {themeOptions.map((option) => (
-            <button
-              key={option.id}
-              onClick={() => setTheme(option.id)}
-              className={cn(
-                "flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm font-medium transition-all",
-                theme === option.id
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground"
-              )}
-              aria-pressed={theme === option.id}
-            >
-              <option.icon className="w-4 h-4" />
-              {option.label}
-            </button>
           ))}
         </div>
       </section>
