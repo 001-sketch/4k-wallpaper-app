@@ -3,6 +3,7 @@
 import React from "react";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Trash2, Bell, Shield, HelpCircle, ChevronRight, Download } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
@@ -74,8 +75,8 @@ export function SettingsPage() {
       <section className="px-4 mb-6">
         <h2 className="text-sm font-semibold text-foreground mb-3">More</h2>
         <div className="space-y-1">
-          <SettingsLink icon={Shield} title="Privacy Policy" />
-          <SettingsLink icon={HelpCircle} title="Help & Support" />
+          <SettingsLink icon={Shield} title="Privacy Policy" href="/privacy-policy" />
+          <SettingsLink icon={HelpCircle} title="Help & Support" href="/help-support" />
         </div>
       </section>
 
@@ -141,17 +142,19 @@ function SettingsToggle({
 function SettingsLink({
   icon: Icon,
   title,
+  href,
 }: {
   icon: React.ElementType;
   title: string;
+  href: string;
 }) {
   return (
-    <button className="w-full flex items-center gap-3 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors">  
+    <Link href={href} className="w-full flex items-center gap-3 p-4 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors">  
       <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0">  
         <Icon className="w-5 h-5 text-muted-foreground" />  
       </div>  
       <span className="flex-1 text-sm font-medium text-foreground text-left">{title}</span>  
       <ChevronRight className="w-4 h-4 text-muted-foreground" />  
-    </button>  
+    </Link>  
   );
 }
