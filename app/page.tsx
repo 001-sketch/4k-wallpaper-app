@@ -70,7 +70,7 @@ export default function WallpaperApp() {
       <Toaster position="top-right" />
       {/* Header navigation */}
       <HeaderNav activeTab={activeTab} onTabChange={handleTabChange} />
-      
+
       {/* Page content */}
       <div className="relative pt-16">
         {activeTab === "home" && (
@@ -106,7 +106,11 @@ export default function WallpaperApp() {
       />
 
       {/* Bottom navigation — visible on mobile, hidden on md+ */}
-      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} className="md:hidden" />
+      <BottomNav
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        className="md:hidden"
+      />
 
       {/* Footer */}
       <Footer />
