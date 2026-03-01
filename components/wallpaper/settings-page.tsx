@@ -1,14 +1,6 @@
-// Updated settings-page.tsx
-import React from 'react';
-// Removed unused imports
+"use client";
+import React from "react";
 
-const SettingsPage = () => {
-  return (
-    <div>
-      {/* Removed Premium/Payment banner section */}
-      {/* Removed Appearance/Theme section */}
-    </div>
-  );
-};
-
-export default SettingsPage;
+export function SettingsPage() {
+    // Keep the Appearance and Premium banner UI removed
+}
