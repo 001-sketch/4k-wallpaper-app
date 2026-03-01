@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Toaster, toast } from "sonner";
 import type { Wallpaper } from "@/lib/db";
 import { HeaderNav } from "@/components/wallpaper/header-nav";
+import { BottomNav } from "@/components/wallpaper/bottom-nav";
 import { Footer } from "@/components/wallpaper/footer";
 import { HomeFeed } from "@/components/wallpaper/home-feed";
 import { ExplorePage } from "@/components/wallpaper/explore-page";
@@ -103,6 +104,9 @@ export default function WallpaperApp() {
         isOpen={isPreviewOpen}
         onClose={handleClosePreview}
       />
+
+      {/* Bottom navigation — visible on mobile, hidden on md+ */}
+      <BottomNav activeTab={activeTab} onTabChange={handleTabChange} className="md:hidden" />
 
       {/* Footer */}
       <Footer />

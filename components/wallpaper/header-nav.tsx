@@ -34,7 +34,7 @@ export function HeaderNav({ activeTab, onTabChange }: HeaderNavProps) {
             </Link>
           </div>
           
-          <nav className="flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const isActive = activeTab === item.id;
               return (
