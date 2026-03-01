@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 interface BottomNavProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
+  className?: string;
 }
 
 const navItems = [
@@ -16,9 +17,9 @@ const navItems = [
   { id: "settings", icon: Settings, label: "Settings" },
 ];
 
-export function BottomNav({ activeTab, onTabChange }: BottomNavProps) {
+export function BottomNav({ activeTab, onTabChange, className }: BottomNavProps) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 glass safe-bottom">
+    <nav className={cn("fixed bottom-0 left-0 right-0 z-50 glass safe-bottom", className)}>
       <div className="flex items-center justify-around px-2 py-2">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
