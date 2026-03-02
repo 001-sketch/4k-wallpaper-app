@@ -166,7 +166,7 @@ export default async function WallpaperDetailPage({ params }: Props) {
                 </dd>
               </div>
             )}
-            {wallpaper.file_size > 0 && (
+            {wallpaper.file_size != null && wallpaper.file_size > 0 && (
               <div>
                 <dt className="text-muted-foreground mb-1">File Size</dt>
                 <dd className="font-medium text-foreground">
@@ -292,12 +292,13 @@ function buildAltText(wallpaper: Wallpaper): string {
 function buildDescription(wallpaper: Wallpaper): string {
   if (wallpaper.description) return wallpaper.description;
 
+  const PIXELS_PER_MEGAPIXEL = 1_000_000;
   const parts: string[] = [];
   parts.push(`${wallpaper.title} is a`);
 
   if (wallpaper.width && wallpaper.height) {
     const megapixels = Math.round(
-      (wallpaper.width * wallpaper.height) / 1_000_000
+      (wallpaper.width * wallpaper.height) / PIXELS_PER_MEGAPIXEL
     );
     if (megapixels >= 8) parts.push("stunning 8K");
     else if (megapixels >= 5) parts.push("crisp 5K");

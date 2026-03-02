@@ -41,7 +41,9 @@ export async function getWallpapers(
   const query = await getQuery();
   if (!query) return [];
   try {
-    const orderMap: Record<string, string> = {
+    // ORDER BY cannot be parameterized; use an explicit whitelist of safe
+    // column expressions so no user-supplied string ever reaches the query.
+    const orderMap: Record<"trending" | "newest" | "popular", string> = {
       trending:
         "(w.downloads * 0.5 + w.favorites * 0.3 + w.views * 0.2) DESC",
       newest: "w.created_at DESC",
