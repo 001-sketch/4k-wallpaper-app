@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     siteName: "Wallscape",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1579508542697-bb18e7d9aeaa?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&h=630&q=80",
         width: 1200,
         height: 630,
-        alt: "Featured sports car wallpaper",
+        alt: "Neon alley cyberpunk wallpaper",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wallscape - Premium 4K Wallpapers",
     description: "Discover stunning 4K, 5K, and 8K wallpapers. Curated collections for every screen.",
-    images: ["https://images.unsplash.com/photo-1579508542697-bb18e7d9aeaa?w=1200&q=80"],
+    images: ["https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1200&h=630&q=80"],
   },
   icons: {
     icon: [
