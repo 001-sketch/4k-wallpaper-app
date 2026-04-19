@@ -148,7 +148,7 @@ interface UnsplashImage {
 // High-quality wallpaper images from Unsplash
 const unsplashImages: UnsplashImage[] = [
   {
-    id: "neon-alley-hero",
+    id: "neon-alley",
     url: "https://images.unsplash.com/photo-1519608425089-7f3bfa6f6bb8?w=1920&q=80",
     title: "Neon Alley Rain Reflections",
     category: "cyberpunk",
