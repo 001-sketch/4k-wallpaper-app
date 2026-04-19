@@ -365,6 +365,6 @@ UPDATE categories SET wallpaper_count = (
   SELECT COUNT(*) FROM wallpapers WHERE wallpapers.category_id = categories.id
 );
 
--- Ensure homepage featured wallpaper is a sports car
+-- Ensure homepage featured wallpaper uses a neon alley cyberpunk image
 UPDATE wallpapers SET is_featured = false;
-UPDATE wallpapers SET is_featured = true WHERE slug = 'sports-car-04';
+UPDATE wallpapers SET is_featured = true WHERE slug = 'neon-alley';

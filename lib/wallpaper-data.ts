@@ -118,10 +118,43 @@ export const categories: Category[] = [
     wallpaperCount: 640,
     color: "#ef4444",
   },
+  {
+    id: "10",
+    name: "Cyberpunk",
+    slug: "cyberpunk",
+    icon: "Zap",
+    wallpaperCount: 760,
+    color: "#06b6d4",
+  },
+  {
+    id: "11",
+    name: "Retro",
+    slug: "retro",
+    icon: "Film",
+    wallpaperCount: 520,
+    color: "#f97316",
+  },
 ];
 
+interface UnsplashImage {
+  id: string;
+  url: string;
+  title: string;
+  category: string;
+  colors: string[];
+  tags?: string[];
+}
+
 // High-quality wallpaper images from Unsplash
-const unsplashImages = [
+const unsplashImages: UnsplashImage[] = [
+  {
+    id: "neon-alley-hero",
+    url: "https://images.unsplash.com/photo-1519608425089-7f3bfa6f6bb8?w=1920&q=80",
+    title: "Neon Alley Rain Reflections",
+    category: "cyberpunk",
+    colors: ["#020617", "#0891b2", "#f43f5e"],
+    tags: ["neon", "alley", "cyberpunk", "rain", "reflections"],
+  },
   {
     id: "aurora",
     url: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=80",
@@ -262,6 +295,182 @@ const unsplashImages = [
     category: "nature",
     colors: ["#14532d", "#22c55e", "#86efac"],
   },
+  {
+    id: "deep-nebula-glow",
+    url: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=1920&q=80",
+    title: "Deep Nebula Glow",
+    category: "space",
+    colors: ["#020617", "#1d4ed8", "#22d3ee"],
+    tags: ["space", "nebula", "oled", "black", "cosmic"],
+  },
+  {
+    id: "cosmic-black-expanse",
+    url: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1920&q=80",
+    title: "Cosmic Black Expanse",
+    category: "space",
+    colors: ["#000000", "#0f172a", "#38bdf8"],
+    tags: ["space", "stars", "cosmic", "deep-black", "oled"],
+  },
+  {
+    id: "bioluminescent-nebula",
+    url: "https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1920&q=80",
+    title: "Bioluminescent Nebula",
+    category: "space",
+    colors: ["#030712", "#4338ca", "#14b8a6"],
+    tags: ["space", "nebula", "bioluminescent", "glow", "night"],
+  },
+  {
+    id: "golden-hour-fog-forest",
+    url: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920&q=80",
+    title: "Golden Hour Fog Forest",
+    category: "nature",
+    colors: ["#1c1917", "#78350f", "#a16207"],
+    tags: ["nature", "forest", "fog", "golden-hour", "moody"],
+  },
+  {
+    id: "dark-fir-mist",
+    url: "https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80",
+    title: "Dark Fir Mist",
+    category: "nature",
+    colors: ["#111827", "#374151", "#6b7280"],
+    tags: ["nature", "forest", "mist", "atmospheric", "dark"],
+  },
+  {
+    id: "frost-on-leaf-macro",
+    url: "https://images.unsplash.com/photo-1484318571209-661cf29a69c3?w=1920&q=80",
+    title: "Frost on Leaf Macro",
+    category: "nature",
+    colors: ["#0f172a", "#64748b", "#cbd5e1"],
+    tags: ["nature", "macro", "frost", "leaf", "winter"],
+  },
+  {
+    id: "spiderweb-water-drops",
+    url: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1920&q=80",
+    title: "Water Droplets on Spider Web",
+    category: "nature",
+    colors: ["#020617", "#334155", "#93c5fd"],
+    tags: ["nature", "macro", "spiderweb", "droplets", "bokeh"],
+  },
+  {
+    id: "mineral-crystal-macro",
+    url: "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1920&q=80",
+    title: "Mineral Crystal Formation",
+    category: "nature",
+    colors: ["#1f2937", "#6d28d9", "#c4b5fd"],
+    tags: ["nature", "macro", "crystal", "mineral", "texture"],
+  },
+  {
+    id: "maasai-mara-sunrise",
+    url: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1920&q=80",
+    title: "Maasai Mara Sunrise",
+    category: "nature",
+    colors: ["#3f1d0d", "#ea580c", "#facc15"],
+    tags: ["nature", "landscape", "east-africa", "maasai-mara", "sunrise"],
+  },
+  {
+    id: "rift-valley-escarpment",
+    url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80",
+    title: "Rift Valley Escarpment",
+    category: "nature",
+    colors: ["#0f172a", "#1d4ed8", "#86efac"],
+    tags: ["nature", "landscape", "east-africa", "rift-valley", "escarpment"],
+  },
+  {
+    id: "kenya-coastline-dusk",
+    url: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1920&q=80",
+    title: "Kenya Coastline at Dusk",
+    category: "nature",
+    colors: ["#082f49", "#0369a1", "#f97316"],
+    tags: ["nature", "landscape", "east-africa", "kenya", "coastline"],
+  },
+  {
+    id: "brutalist-shadow-facade",
+    url: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1920&q=80",
+    title: "Brutalist Shadow Facade",
+    category: "architecture",
+    colors: ["#111827", "#4b5563", "#e5e7eb"],
+    tags: ["architecture", "brutalist", "concrete", "shadows", "contrast"],
+  },
+  {
+    id: "brutalist-concrete-courtyard",
+    url: "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?w=1920&q=80",
+    title: "Brutalist Concrete Courtyard",
+    category: "architecture",
+    colors: ["#0f172a", "#52525b", "#d4d4d8"],
+    tags: ["architecture", "brutalist", "concrete", "geometry", "light"],
+  },
+  {
+    id: "minimal-dark-texture",
+    url: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=1920&q=80",
+    title: "Minimal Dark Texture",
+    category: "minimal",
+    colors: ["#030712", "#1f2937", "#374151"],
+    tags: ["minimal", "dark", "texture", "desktop", "negative-space"],
+  },
+  {
+    id: "negative-space-night",
+    url: "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?w=1920&q=80",
+    title: "Negative Space Night",
+    category: "minimal",
+    colors: ["#020617", "#111827", "#475569"],
+    tags: ["minimal", "dark", "negative-space", "clean", "desktop"],
+  },
+  {
+    id: "cyberpunk-alley-signs",
+    url: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1920&q=80",
+    title: "Cyberpunk Alley Neon Signs",
+    category: "cyberpunk",
+    colors: ["#020617", "#06b6d4", "#f472b6"],
+    tags: ["cyberpunk", "neon", "alley", "rain", "city"],
+  },
+  {
+    id: "neon-rain-street",
+    url: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=1920&q=80",
+    title: "Neon Rain Street",
+    category: "cyberpunk",
+    colors: ["#0f172a", "#0ea5e9", "#e879f9"],
+    tags: ["cyberpunk", "street", "neon", "reflections", "night"],
+  },
+  {
+    id: "hologram-alley-night",
+    url: "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=1920&q=80",
+    title: "Hologram Alley at Night",
+    category: "cyberpunk",
+    colors: ["#020617", "#22d3ee", "#f43f5e"],
+    tags: ["cyberpunk", "alley", "hologram", "neon", "rain"],
+  },
+  {
+    id: "teal-black-fluid-gradient",
+    url: "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=1920&q=80",
+    title: "Teal to Black Fluid Gradient",
+    category: "gradient",
+    colors: ["#020617", "#0f766e", "#22d3ee"],
+    tags: ["gradient", "abstract", "teal", "black", "fluid"],
+  },
+  {
+    id: "coral-purple-cinematic-gradient",
+    url: "https://images.unsplash.com/photo-1557683311-eac922347aa1?w=1920&q=80",
+    title: "Coral to Purple Cinematic Gradient",
+    category: "gradient",
+    colors: ["#7e22ce", "#e11d48", "#fb7185"],
+    tags: ["gradient", "abstract", "coral", "purple", "cinematic"],
+  },
+  {
+    id: "retro-film-warm-street",
+    url: "https://images.unsplash.com/photo-1493238792000-8113da705763?w=1920&q=80",
+    title: "Retro Film Warm Street",
+    category: "retro",
+    colors: ["#3f2a1d", "#b45309", "#facc15"],
+    tags: ["retro", "film", "35mm", "warm", "faded"],
+  },
+  {
+    id: "analog-grain-sunlight",
+    url: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80",
+    title: "Analog Grain Sunlight",
+    category: "retro",
+    colors: ["#422006", "#a16207", "#fde68a"],
+    tags: ["retro", "analog", "film-grain", "warm", "cinematic"],
+  },
 ];
 
 const artists = [
@@ -297,7 +506,15 @@ function generateWallpaper(
       name: category.name,
       slug: category.slug,
     },
-    tags: [category.slug, "4k", "hd", imageData.id.split("-")[0]],
+    tags: [
+      ...new Set([
+        category.slug,
+        "4k",
+        "hd",
+        ...(imageData.tags || []),
+        imageData.id.split("-")[0],
+      ]),
+    ],
     metadata: {
       width,
       height,
