@@ -149,7 +149,7 @@ interface UnsplashImage {
 const unsplashImages: UnsplashImage[] = [
   {
     id: "neon-alley",
-    url: "https://images.unsplash.com/photo-1519608425089-7f3bfa6f6bb8?w=1920&q=80",
+    url: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1920&q=80",
     title: "Neon Alley Rain Reflections",
     category: "cyberpunk",
     colors: ["#020617", "#0891b2", "#f43f5e"],
