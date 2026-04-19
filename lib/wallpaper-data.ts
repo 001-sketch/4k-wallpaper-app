@@ -164,7 +164,7 @@ const unsplashImages: UnsplashImage[] = [
   },
   {
     id: "mountain-lake",
-    url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80",
+    url: "https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1920&q=80",
     title: "Alpine Mountain Lake",
     category: "nature",
     colors: ["#1a365d", "#4a5568", "#e2e8f0"],
