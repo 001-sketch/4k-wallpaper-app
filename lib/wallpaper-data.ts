@@ -548,7 +548,9 @@ export const trendingWallpapers = [...wallpapers]
   .sort((a, b) => b.stats.views - a.stats.views)
   .slice(0, 10);
 
-export const featuredWallpaper = wallpapers[0];
+export const featuredWallpaper =
+  wallpapers.find((wallpaper) => wallpaper.slug === "neon-alley") ??
+  wallpapers[0];
 
 export function getWallpapersByCategory(slug: string): Wallpaper[] {
   return wallpapers.filter((w) => w.category.slug === slug);
