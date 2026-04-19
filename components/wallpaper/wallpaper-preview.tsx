@@ -119,12 +119,12 @@ export function WallpaperPreview({
       >
         <div className="relative h-full flex flex-col">
           {/* Full screen image */}
-          <div className="relative flex-1 min-h-0">
+          <div className="relative flex-1 min-h-0 bg-black">
             <Image
               src={wallpaper.preview_url || wallpaper.full_url || "/placeholder.svg"}
               alt={wallpaper.title}
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
 
