@@ -1,4 +1,4 @@
-# 4K Wallpaper App
+8# 4K Wallpaper App
 
 *A beautiful, modern wallpaper discovery and collection app built with Next.js*
 
@@ -42,9 +42,6 @@
 ## 📚 Documentation
 
 - [AUTHENTICATION.md](AUTHENTICATION.md) - Authentication setup guide
-- [AUTHENTICATION_OPTIMIZED.md](AUTHENTICATION_OPTIMIZED.md) - Advanced auth features
-- [AUTH_OPTIMIZATION_SUMMARY.md](AUTH_OPTIMIZATION_SUMMARY.md) - Quick auth summary
-- [FILE_MANIFEST.md](FILE_MANIFEST.md) - Complete file listing
 
 ## 🚀 Quick Start
 
