@@ -71,19 +71,12 @@ export function WallpaperPreview({
     setIsDownloading(true);
 
     try {
-      // Fetch the image
-      const response = await fetch(wallpaper.full_url);
-      const blob = await response.blob();
-      
-      // Create a download link
-      const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = url;
+      link.href = `/api/wallpapers/${encodeURIComponent(wallpaper.slug)}/download`;
       link.download = `${wallpaper.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
 
       addDownload(wallpaper.id);
 

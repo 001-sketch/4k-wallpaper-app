@@ -1,0 +1,5 @@
+allowBuilds:
+  '@sentry-internal/node-cpu-profiler': false
+  '@tailwindcss/oxide': false
+  core-js: false
+  sharp: false

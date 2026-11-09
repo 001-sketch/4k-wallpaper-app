@@ -22,7 +22,7 @@ export default function TermsOfService() {
             Terms of Service
           </h1>
           <p className="text-muted-foreground">
-            Last updated: {new Date().toLocaleDateString()}
+            Last updated: November 9, 2026
           </p>
         </div>
 

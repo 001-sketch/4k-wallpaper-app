@@ -215,9 +215,7 @@ export default async function WallpaperDetailPage({ params }: Props) {
         {/* Download CTA */}
         <div className="mb-12">
           <a
-            href={wallpaper.full_url}
-            target="_blank"
-            rel="noreferrer"
+            href={`/api/wallpapers/${encodeURIComponent(wallpaper.slug)}/download`}
             download
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full gradient-bg font-semibold text-sm text-white hover:opacity-90 transition-opacity"
           >
