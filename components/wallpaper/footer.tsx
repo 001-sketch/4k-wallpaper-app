@@ -68,7 +68,9 @@ export function Footer() {
             <h3 className="font-semibold text-sm">Follow Us</h3>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://github.com/001-sketch/4k-wallpaper-app"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
                 aria-label="GitHub"
               >
